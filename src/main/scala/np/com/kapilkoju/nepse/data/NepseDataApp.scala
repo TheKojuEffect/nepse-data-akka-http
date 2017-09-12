@@ -1,9 +1,10 @@
 package np.com.kapilkoju.nepse.data
 
-object NepseDataApp extends Greeting with App {
-  println(greeting)
+import akka.http.scaladsl.server.HttpApp
+
+object WebServer extends HttpApp with Routes {
 }
 
-trait Greeting {
-  lazy val greeting: String = "NEPSE Data"
+object NepseDataApp extends App {
+  WebServer.startServer("localhost", 8080)
 }
